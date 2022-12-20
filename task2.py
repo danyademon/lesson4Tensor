@@ -1,9 +1,12 @@
+from prettytable import PrettyTable
 colors = {'black': (0,0,0), 'red': (255,0,0)}
 
 while True:
     print('0.Выход\n1.Добавить цвет\n2.Вывести все добавленные цвета')
     menu_selector = int(input())
-    if menu_selector < 0 or menu_selector > 2:
+    if (menu_selector < 0 
+            or menu_selector > 2):
+        #Ловит исключение, если такого пункта нет в меню
         print('Нет такого пункта в меню, попробуйте еще.')
         continue
 
@@ -15,7 +18,12 @@ while True:
         r =  int(input('Введите r: '))
         g =  int(input('Введите g: '))
         b =  int(input('Введите b: '))
-        if r > 255 or g > 255 or b > 255 or r < 0 or g < 0 or b < 0:
+        if ((r > 255) or
+                (g > 255) or
+                (b > 255) or 
+                (r < 0) or 
+                (g < 0) or 
+                (b < 0)):
             print('Значение rgb лежит в диапазоне от 0 до 255. Попробуйте еще.')
             continue
         colors_in_dict = colors.keys()
